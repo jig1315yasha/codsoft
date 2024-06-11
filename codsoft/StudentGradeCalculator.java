@@ -4,21 +4,34 @@ import java.util.Scanner;
 
 public class StudentGradeCalculator {
     public String grade(int avg) {
-        return switch (avg / 10) {
-            case 10 -> "A+";
-            case 9 -> "A";
-            case 8 -> "B+";
-            case 7 -> "B";
-            case 6 -> "C";
-            case 5 -> "D";
-            default -> "F";
-        };
+      if(avg >=95)
+          return "A+";
+      else if ( avg >=90 && avg < 94 )
+          return "A";
+      else if (avg >= 80 && avg <90)
+          return "B+";
+      else if (avg >= 70 && avg < 80)
+          return "C+";
+      else if (avg>=60 && avg <70)
+          return "C";
+      else if (avg>= 50 && avg < 60)
+          return "D+";
+      else if (avg >= 40 && avg < 50)
+          return "D";
+      else if (avg >=33 && avg< 40)
+          return "E";
+
+      else
+          return "Fail";
+
     }
+
 
     public static void main(String[] args) {
             StudentGradeCalculator g = new StudentGradeCalculator();
             Scanner sc = new Scanner(System.in);
-
+            System.out.println(" Enter The name of the student : ");
+            String name = sc.nextLine();
             //Taking input of how many subjects are there
             System.out.println("Enter the total number of subjects");
             int totalSubs = sc.nextInt();
@@ -41,7 +54,8 @@ public class StudentGradeCalculator {
             String Grade = g.grade(avgPercentage);
 
             //Displaying all the Data
-            System.out.println("Total marks obtained out of" + totalMarks +" :- " +totalMarksObtained);
+            System.out.println(" Student Name : "+name);
+            System.out.println("Total marks obtained out of " + totalMarks +" :- " +totalMarksObtained);
 
             System.out.println("Average Percentage obtained :- " + avgPercentage+ "%");
             System.out.println("Grade obtained :- " + Grade);
@@ -52,3 +66,7 @@ public class StudentGradeCalculator {
     }
 }
 
+
+
+    
+            
